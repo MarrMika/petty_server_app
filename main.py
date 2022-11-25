@@ -6,13 +6,13 @@ from model.model import PredictionOut,TextIn
 
 app = FastAPI()
         
-        
-@app.get("/")
+
+@app.get("/api")
 def home():
     return {"health_check": "OK", "model_version": model_version}
 
 
-@app.post("/predict", response_model=PredictionOut)
+@app.post("/api/predict", response_model=PredictionOut)
 def predict(payload: TextIn):
     result = predict_pipeline(payload.text)
     return {"result": result}
