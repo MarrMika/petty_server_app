@@ -1,7 +1,13 @@
-FROM tiangolo/uvicorn-gunicorn-fastapi:python3.9
+FROM python:3.9
 
-COPY ./requirements.txt /app/requirements.txt
+LABEL maintainer="slobodian.mariia.work@gmail.com"
 
-RUN pip install --no-cache-dir --upgrade -r /app/requirements.txt
+WORKDIR /root
 
-COPY ./app /app/app
+COPY ./requirements.txt /root/requirements.txt
+ 
+RUN pip install --no-cache-dir --upgrade -r /root/requirements.txt
+ 
+COPY ./app /root/app
+ 
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8080"]
