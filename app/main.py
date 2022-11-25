@@ -1,7 +1,7 @@
 from fastapi import FastAPI, UploadFile
-from model.model import predict_pipeline
-from model.model import __version__ as model_version
-from model.model import PredictionOut
+from app.model.model import predict_pipeline
+from app.model.model import __version__ as model_version
+from app.model.model import PredictionOut
 
 
 app = FastAPI()
