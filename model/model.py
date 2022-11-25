@@ -14,11 +14,11 @@ classes = [
 
 
 class EmotionStatistics(BaseModel):
-    happy: str
-    angry: str
-    sad: str
-    aggressive: str
-    arrogant: str
+    happy: float
+    angry: float
+    sad: float
+    aggressive: float
+    arrogant: float
 
 class PredictionOut(BaseModel):
     result: EmotionStatistics
