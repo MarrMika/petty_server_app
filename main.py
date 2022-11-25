@@ -1,7 +1,7 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, UploadFile
 from model.model import predict_pipeline
 from model.model import __version__ as model_version
-from model.model import PredictionOut,TextIn
+from model.model import PredictionOut
 
 
 app = FastAPI()
@@ -13,6 +13,6 @@ def home():
 
 
 @app.post("/api/predict", response_model=PredictionOut)
-def predict(payload: TextIn):
-    result = predict_pipeline(payload.text)
+def predict(audio: UploadFile):
+    result = predict_pipeline(audio)
     return {"result": result}

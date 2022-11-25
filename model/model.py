@@ -23,17 +23,16 @@ class EmotionStatistics(BaseModel):
 class PredictionOut(BaseModel):
     result: EmotionStatistics
 
-class TextIn(BaseModel):
-    text: str
 
+def predict_pipeline(audio):
+    print("Apply prediction process for audio:["+ audio.filename + "]")
 
-def predict_pipeline(text):
-    #var 1
+#V1
     # value = randint(0,4)
     # print("val", value)
     # return classes[value]
 
-    #var 2
+#V2
     value = {
         "happy": randint(1,100)/100, 
         "angry": randint(1,100)/100, 
